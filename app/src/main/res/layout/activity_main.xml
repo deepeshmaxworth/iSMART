@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Author Mr. Deepesh Gupta(+91 98271 77773).
+    Sr. Software Developer @Maxworth Electronics Systems-Delhi.
+    Date: 27/11/2022
+   -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:layout_weight="1"
+    >
+
+
+</RelativeLayout>
+
+

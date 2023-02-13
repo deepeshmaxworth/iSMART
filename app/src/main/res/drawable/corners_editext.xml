@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:dither="true"-->
+    <!---->
+    <!--android:shape="rectangle">-->
+    <!--<gradient-->
+        <!--android:endColor="@color/colorGrey"-->
+        <!--android:startColor="@color/colorGrey"-->
+
+        <!--/>-->
+    <!--<corners android:radius="10dp" />-->
+<!--</shape>-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/captcha"/>
+    <item>
+
+        <shape
+        android:dither="true"
+
+        android:shape="rectangle">
+
+        <corners android:radius="10dp" />
+        </shape>
+    </item>
+</layer-list>

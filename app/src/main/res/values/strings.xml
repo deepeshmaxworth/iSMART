@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">iSMART</string>
+    <string name="app_title">iSMART App</string>
+    <string name="app_desc">Barcode Tracking System PTA</string>
+    <string name="title_activity_setting">Settings</string>
+    <string name="title_activity_menu">MenuActvity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="hint_user_name">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="ipaddress_host">IP Address/Host Name</string>
+    <string name="login">Login</string>
+    <string name="save">Save</string>
+    <string name="download">Download App</string>
+    <string name="datasync">Data Sync</string>
+    <string name="indian_oil">Indian Oil</string>
+    <string name="ok">Ok</string>
+    <string name="submit">Submit</string>
+</resources>

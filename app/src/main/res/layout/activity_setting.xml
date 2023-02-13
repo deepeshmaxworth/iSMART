@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/menucolor"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_margin">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/global_margin"
+            android:layout_toRightOf="@+id/img"
+            android:text="@string/title_activity_setting"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="@dimen/global_margin"
+            android:layout_toRightOf="@+id/img"
+            android:text="@string/app_desc"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/global_medium_text_size" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_marginTop="@dimen/global_margin"
+        android:background="@color/grey"></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:padding="@dimen/global_half_padding">
+
+        <TextView
+            android:id="@+id/deviceIdTextv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sample_2_layout_2_height"
+            android:layout_margin="@dimen/global_margin"
+            android:background="@drawable/headline_outline"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/global_text_size"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sample_2_layout_2_height"
+            android:layout_below="@+id/layout_username"
+            android:layout_margin="@dimen/global_margin"
+            android:background="@drawable/edit_text_oval_shape_white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/global_margin"
+                android:background="@drawable/password_icon" />
+
+            <EditText
+                android:id="@+id/etpassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/ipaddress_host"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:padding="@dimen/global_half_padding"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/menucolor"
+                android:textSize="@dimen/global_text_size" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sample_2_layout_2_height"
+            android:layout_margin="@dimen/global_margin"
+            android:background="@drawable/round_corner_button_yellow"
+            android:gravity="center"
+            android:onClick="saveClick"
+            android:text="@string/save"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/global_text_size" />
+
+
+        <TextView
+            android:id="@+id/btnDataSYnc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sample_2_layout_2_height"
+            android:layout_margin="@dimen/global_margin"
+            android:background="@drawable/round_corner_button"
+            android:gravity="center"
+            android:onClick="syncClick"
+            android:text="@string/download"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/global_text_size" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
