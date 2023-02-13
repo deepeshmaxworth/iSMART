@@ -17,4 +17,16 @@
     <string name="indian_oil">Indian Oil</string>
     <string name="ok">Ok</string>
     <string name="submit">Submit</string>
+
+    <string name="Enter_Valid_Captcha">Enter Valid Captcha!!</string>
+    <string name="Please_Check_Userid_and_Password">Please Check Userid and Password!!</string>
+    <string name="Please_Enter_Password">Please Enter Password.</string>
+    <string name="Please_Enter_Correct_Password">Please Enter Correct Password !!</string>
+    <string name="Network_Problem">Network Problem !!</string>
+    <string name="Loading">Loading...</string>
+    <string name="Singing_in">Signing in...</string>
+    <string name="Processing">Processing ...</string>
+    <string name="Mapping">Mapping ...</string>
+    <string name="Wait">Wait ...</string>
+    <string name="Press_again_to_exit">Press again to exit !!</string>
 </resources>
