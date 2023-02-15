@@ -17,11 +17,20 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.mespl.ismartkotlin.R
 import com.mespl.ismartkotlin.databinding.ActivityLoginBinding
+import com.mespl.ismartkotlin.utils.Konstants.CaptchaStatus
+import com.mespl.ismartkotlin.utils.getcaptcha
+import com.mespl.ismartkotlin.utils.promptErrorMessage
+import com.mespl.ismartkotlin.utils.showSnackbar
 
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var mCtx: Context
+    private lateinit var btnlogin: TextView
+    private lateinit var tvCaptcha: TextView
+    private lateinit var etPassword: EditText
+    private lateinit var etUserid: EditText
+    private lateinit var etCaptcha: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +41,32 @@ class LoginActivity : BaseActivity() {
 
     private fun initView(binding: ActivityLoginBinding) {
         this.also { mCtx = it }
-
-       val btnlogin: LinearLayout = binding.btnlogin
+        btnlogin = binding.btnlogin
+        tvCaptcha = binding.tvCaptcha
+        etPassword = binding.etPassword
+        etUserid = binding.etUserid
+        etCaptcha = binding.etCaptcha
+        tvCaptcha.text = getcaptcha(4)
     }
 
 
     fun loginClick(view: View) {
-
+        if (etUserid.text.toString() != "" && etPassword.text.toString() != ""
+        ) {
+            if (etCaptcha.text.toString() == tvCaptcha.text.toString() || !CaptchaStatus
+            ) {
+//                GetLogin()
+                showSnackbar(view, "Login Successful", this)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                promptErrorMessage(getString(R.string.Enter_Valid_Captcha), this)
+                getcaptcha(4)
+            }
+        } else {
+            promptErrorMessage(getString(R.string.Please_Check_Userid_and_Password), this)
+            return
+        }
     }
 
     fun settingClick(view: View) {
@@ -51,6 +79,12 @@ class LoginActivity : BaseActivity() {
 
     fun syncClick(view: View) {
 
+    }
+
+
+    fun refreshClick(view: View) {
+        tvCaptcha.text = getcaptcha(4)
+        etCaptcha.setText("")
     }
 
     fun callDialog() {
@@ -92,10 +126,10 @@ class LoginActivity : BaseActivity() {
                 //                    finish();
             } else {
                 if (!settingpswrd.text.toString().equals("2662", ignoreCase = true)) {
-                    promptErrorMessage(getString(R.string.Please_Enter_Correct_Password))
+                    promptErrorMessage(getString(R.string.Please_Enter_Correct_Password), this)
                     return@OnClickListener
                 } else {
-                    promptErrorMessage(getString(R.string.Please_Enter_Password))
+                    promptErrorMessage(getString(R.string.Please_Enter_Password), this)
                     return@OnClickListener
                 }
             }
@@ -107,17 +141,10 @@ class LoginActivity : BaseActivity() {
         dialog.show()
     }
 
-    fun promptErrorMessage(caution: String?) {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.errordialog)
-        dialog.setCancelable(false)
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.setTitle("Message")
-        val texOK = dialog.findViewById<LinearLayout>(R.id.al_button_ok)
-        val dialogtextChange = dialog.findViewById<TextView>(R.id.al_txt_preview)
-        dialogtextChange.text = caution
-        dialog.show()
-        texOK.setOnClickListener { dialog.dismiss() }
+    override fun onResume() {
+        super.onResume()
+        getcaptcha(4)
     }
+
+
 }

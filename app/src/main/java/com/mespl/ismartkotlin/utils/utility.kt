@@ -3,11 +3,14 @@ package com.mespl.ismartkotlin.utils
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.ContentResolver
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaScannerConnection
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -17,14 +20,18 @@ import android.os.Environment
 import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
+
+import android.view.Window
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import com.google.android.material.snackbar.Snackbar
-import com.mespl.ismartkotlin.BuildConfig
 
+import com.mespl.ismartkotlin.BuildConfig
 import com.mespl.ismartkotlin.R
 import java.io.File
 import java.io.FileOutputStream
@@ -32,6 +39,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
+
 
 fun isConnectedToInernet(mCtx: Context): Boolean {
     val manager: ConnectivityManager =
@@ -49,6 +57,42 @@ fun isConnectedToInernet(mCtx: Context): Boolean {
     return false
 }
 
+fun promptErrorMessage(caution: String?, mCtx: Context) {
+    val dialog = Dialog(mCtx)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setContentView(R.layout.errordialog)
+    dialog.setCancelable(false)
+    dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    dialog.setTitle("Message")
+    val texOK = dialog.findViewById<LinearLayout>(R.id.al_button_ok)
+    val dialogtextChange = dialog.findViewById<TextView>(R.id.al_txt_preview)
+    dialogtextChange.text = caution
+    dialog.show()
+    texOK.setOnClickListener { dialog.dismiss() }
+}
+
+fun promptMessage(caution: String?, mCtx: Context) {
+    val dialog = Dialog(mCtx)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setContentView(R.layout.errordialog)
+    dialog.setCancelable(false)
+    dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    dialog.setTitle("Message")
+    val texOK = dialog.findViewById<LinearLayout>(R.id.al_button_ok)
+    val dialogtextChange = dialog.findViewById<TextView>(R.id.al_txt_preview)
+    dialogtextChange.text = caution
+    dialog.show()
+    texOK.setOnClickListener { dialog.dismiss() }
+}
+
+fun showSnackbar(parentView: View, msg: String, mCtx: Context) {
+    val snack = Snackbar.make(parentView, msg, Snackbar.LENGTH_LONG)
+        .setAction("OK") {
+
+        }.setActionTextColor(mCtx.resources.getColor(android.R.color.holo_blue_dark))
+    snack.show()
+}
+
 fun getDeviceSerial(): String? {
     var serialNumber: String? = ""
     serialNumber = if (Build.VERSION.SDK_INT >= 26) {
@@ -57,6 +101,17 @@ fun getDeviceSerial(): String? {
         Build.SERIAL
     }
     return serialNumber
+}
+
+fun getcaptcha(count: Int): String? {
+    val alphaNumeric = "abcdefghijklmnopqrstuvwxyz"
+    var count = count
+    val builder = StringBuilder()
+    while (count-- != 0) {
+        val character: Int = (Math.random() * alphaNumeric.length).toInt()
+        builder.append(alphaNumeric[character])
+    }
+    return builder.toString()
 }
 
 fun toolbarWithBackAndTitle(toolbar: Toolbar?, context: Context, title: String?) {
@@ -216,14 +271,6 @@ fun getfileExtension(fileName: String): String {
 
 fun generateRandomNo(): Int {
     return 1234 + Random.nextInt(8756)
-}
-
-fun showSnackbar(parentId: View, msg: String, context: Context) {
-    val snack = Snackbar.make(parentId, msg, Snackbar.LENGTH_LONG)
-        .setAction("OK") {
-
-        }.setActionTextColor(context.resources.getColor(android.R.color.holo_blue_dark))
-    snack.show()
 }
 
 fun toastShow(msg: String, mCtx: Context) {
