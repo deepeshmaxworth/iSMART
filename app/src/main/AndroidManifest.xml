@@ -18,10 +18,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".pta.DashboardActivity"
             android:exported="false"
-            android:label="@string/title_activity_main"
+            android:label="@string/title_activity_dashboard"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -32,6 +34,7 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

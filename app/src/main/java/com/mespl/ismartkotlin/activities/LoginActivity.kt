@@ -13,10 +13,10 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.mespl.ismartkotlin.R
 import com.mespl.ismartkotlin.databinding.ActivityLoginBinding
+import com.mespl.ismartkotlin.pta.DashboardActivity
 import com.mespl.ismartkotlin.utils.Konstants.CaptchaStatus
 import com.mespl.ismartkotlin.utils.getcaptcha
 import com.mespl.ismartkotlin.utils.promptErrorMessage
@@ -57,14 +57,15 @@ class LoginActivity : BaseActivity() {
             ) {
 //                GetLogin()
                 showSnackbar(view, "Login Successful", this)
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, DashboardActivity::class.java)
                 startActivity(intent)
             } else {
                 promptErrorMessage(getString(R.string.Enter_Valid_Captcha), this)
-                getcaptcha(4)
+                tvCaptcha.text = getcaptcha(4)
             }
         } else {
             promptErrorMessage(getString(R.string.Please_Check_Userid_and_Password), this)
+            tvCaptcha.text = getcaptcha(4)
             return
         }
     }
@@ -143,7 +144,7 @@ class LoginActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        getcaptcha(4)
+        tvCaptcha.text = getcaptcha(4)
     }
 
 

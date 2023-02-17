@@ -33,11 +33,13 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_putaway">Putaway</string>
+    <string name="menu_dispatch">Dispatch</string>
+    <string name="menu_bagsadjustment">Bags Adjustment</string>
 </resources>

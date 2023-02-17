@@ -1,13 +1,13 @@
-package com.mespl.ismartkotlin.activities.ui.gallery
+package com.mespl.ismartkotlin.pta.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class DashboardViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "This is Dashboard Fragment"
     }
     val text: LiveData<String> = _text
 }

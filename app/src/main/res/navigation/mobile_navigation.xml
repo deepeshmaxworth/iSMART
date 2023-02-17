@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_dashboard">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.mespl.ismartkotlin.activities.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_dashboard"
+        android:name="com.mespl.ismartkotlin.pta.ui.dashboard.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.mespl.ismartkotlin.activities.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_dispatch"
+        android:name="com.mespl.ismartkotlin.pta.ui.dispatch.DIspatchFragment"
+        android:label="@string/menu_dispatch"
+        tools:layout="@layout/fragment_dispatch" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.mespl.ismartkotlin.activities.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_putaway"
+        android:name="com.mespl.ismartkotlin.pta.ui.putaway.PutawayFragment"
+        android:label="@string/menu_putaway"
+        tools:layout="@layout/fragment_putaway" />
+
+    <fragment
+        android:id="@+id/nav_bagsadjustment"
+        android:name="com.mespl.ismartkotlin.pta.ui.bagsadjustment.DashboardFragment"
+        android:label="@string/menu_bagsadjustment"
+        tools:layout="@layout/fragment_bagsadjustment" />
 </navigation>

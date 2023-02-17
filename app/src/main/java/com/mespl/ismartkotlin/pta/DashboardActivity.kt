@@ -1,20 +1,20 @@
-package com.mespl.ismartkotlin.activities
+package com.mespl.ismartkotlin.pta
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import com.mespl.ismartkotlin.R
 import com.mespl.ismartkotlin.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
@@ -38,9 +38,12 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_dashboard,R.id.nav_putaway, R.id.nav_dispatch, R.id.nav_bagsadjustment
             ), drawerLayout
         )
+//        val nav_Menu: Menu = navView.menu
+//        nav_Menu.findItem(R.id.nav_bagsadjustment).isVisible = false
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
