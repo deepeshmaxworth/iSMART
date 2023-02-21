@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_bagsadjustment"
-        android:name="com.mespl.ismartkotlin.pta.ui.bagsadjustment.DashboardFragment"
+        android:name="com.mespl.ismartkotlin.pta.ui.bagsadjustment.BagsAdjustmentFragment"
         android:label="@string/menu_bagsadjustment"
         tools:layout="@layout/fragment_bagsadjustment" />
 </navigation>

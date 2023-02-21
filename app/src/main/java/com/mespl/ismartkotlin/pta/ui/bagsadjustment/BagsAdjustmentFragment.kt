@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.mespl.ismartkotlin.databinding.FragmentBagsadjustmentBinding
-import com.mespl.ismartkotlin.pta.ui.dashboard.DashboardViewModel
 
 
 class BagsAdjustmentFragment : Fragment() {
@@ -24,14 +23,14 @@ class BagsAdjustmentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val bagsAdjustmentViewModel =
+            ViewModelProvider(this).get(BagsAdjustmentViewModel::class.java)
 
         _binding = FragmentBagsadjustmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textBagsadjustment
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
+        bagsAdjustmentViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

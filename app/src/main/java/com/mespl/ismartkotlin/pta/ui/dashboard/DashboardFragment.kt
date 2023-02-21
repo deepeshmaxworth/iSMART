@@ -1,5 +1,8 @@
 package com.mespl.ismartkotlin.pta.ui.dashboard
 
+import android.R
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +36,11 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+//
+//        val filter = IntentFilter()
+//        filter.addCategory(Intent.CATEGORY_DEFAULT)
+//        filter.addAction(resources.getString(R.string.activity_intent_filter_action))
+//        registerReceiver(myBroadcastReceiver, filter)
         return root
     }
 
